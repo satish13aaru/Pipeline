@@ -2,20 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('f1') {
+        stage('Build') {
             steps {
                 echo "Welcome to india!"
                 echo "Hello Pune!"
             }
         }
-    stage('f2') {
+    stage('Execute') {
             steps {
                 sh '''
                 ip route get 8.8.8.8 | awk '{print $7; exit}'
                 '''
             }
         }
-    stage('Hello') {
+    stage('Deploy') {
             steps {
                 echo 'Hello World'
             }
