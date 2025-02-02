@@ -3,10 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '{ sudo yum install -y httpd }'
-                sh '{ sudo sleep 5 }'
-                sh '{ sudo echo $(hostname) >>/var/www/html/index.html }'
-                sh '{ sudo service httpd restart }'
+                sh '''
+                sudo yum install -y httpd
+                sudo sleep 5
+                sudo echo $(hostname) >>/var/www/html/index.html
+                sudo service httpd restart
+                '''
             }
         }
     }
