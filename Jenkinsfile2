@@ -1,7 +1,11 @@
 pipeline {
     agent any
-
     stages {
+        stage('Git Clone') {
+            steps {
+                git pull
+            }
+        }
         stage('Build') {
             steps {
                 echo "Welcome to india!"
