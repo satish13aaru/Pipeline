@@ -1,7 +1,15 @@
 pipeline {
     agent { label 'deploy' }
     stages {
-        stage('Build') {
+        stage('UnInstall') {
+            steps {
+                sh '''
+                sudo yum remove -y httpd
+                sudo sleep 5
+                '''
+            }
+        }
+        stage('Install') {
             steps {
                 sh '''
                 sudo yum install -y httpd
